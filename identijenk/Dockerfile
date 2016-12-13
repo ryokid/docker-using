@@ -1,6 +1,6 @@
 FROM jenkins:1.609.3
-
 USER root
+
 RUN echo "deb http://apt.dockerproject.org/repo debian-jessie main" \
           > /etc/apt/sources.list.d/docker.list \
       && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
@@ -12,7 +12,7 @@ RUN echo "deb http://apt.dockerproject.org/repo debian-jessie main" \
       && rm -rf /var/lib/apt/lists/*
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
-RUN curl -l https://github.com/docker/compose/raleases/download/1.4.1/\
+RUN curl -L https://github.com/docker/compose/releases/download/1.4.1/\
 docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose; \
     chmod +x /usr/local/bin/docker-compose
 
